@@ -1,0 +1,64 @@
+ALGORITHM CheckpointAlgoStructure_FIRST QUESTION
+var
+set1 : ARRAY_OF INTEGER[ ];
+set2 : ARRAY_OF INTEGER[ ];
+hashtab: HASH_TABLE<integer,integer>
+el,count,i:integer
+BEGIN
+//Given two sets of elements, find the sum of all distinct elements from the set. In other words, find the sum of all elements which are present in either of the given set. 
+FOR i FROM 0 TO set1.length STEP 1  DO
+    el:=set1[i]
+    IF (hashtab.lookup(el)) THEN
+        count:=hashtab.get(el)
+        hashtab.insert(el,count+1)
+        else 
+        hashtab.insert(el,1)
+    END_IF
+END_FOR
+FOR i FROM 0 TO set2.length STEP 1  DO
+    el:=set2[i]
+    IF (hashtab.lookup(el)) THEN
+        count:=hashtab.get(el)
+        hashtab.insert(el,count+1)
+        else 
+        hashtab.insert(el,1)
+    END_IF
+END_FOR
+FOR i FROM 0 TO str1.length STEP 1  DO
+    IF (count==1) THEN
+        sum=sum+el
+    END_IF
+END_FOR
+END
+ALGORITHM CheckpointAlgoStructure_SECOND QUESTION
+var
+set1 : ARRAY_OF INTEGER[ ];
+set2 : ARRAY_OF INTEGER[ ];
+hashtab: HASH_TABLE<integer,integer>
+el,count,i:integer
+BEGIN
+FOR i FROM 0 TO set1.length STEP 1  DO
+    el:=set1[i]
+    IF (hashtab.lookup(el)) THEN
+        count:=hashtab.get(el)
+        hashtab.insert(el,count+1)
+        else 
+        hashtab.insert(el,1)
+    END_IF
+END_FOR
+FOR i FROM 0 TO set2.length STEP 1  DO
+    el:=set2[i]
+    IF (hashtab.lookup(el)) THEN
+        count:=hashtab.get(el)
+        hashtab.insert(el,count+1)
+        else 
+        hashtab.insert(el,1)
+    END_IF
+END_FOR
+//Now, given two sets of integers, write also two algorithms to print the sum of overlapping elements in two sets. The elements in each set are unique or there are no duplicates within a set.
+ FOR i FROM 0 TO str1.length STEP 1  DO
+    IF (count==1) THEN
+        sum+=el*count
+    END_IF
+END_FOR
+END
